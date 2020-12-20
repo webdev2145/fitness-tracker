@@ -1,6 +1,11 @@
 import requests
 from credentials import *
 
+GENDER = "male"
+WEIGHT = 79.8
+HEIGHT = 173.64
+AGE = 30
+
 #TODO 1: SET API ID and KEY
 #Added from credentials file
 
@@ -16,11 +21,11 @@ headers = {
 exercise = input("What exercise did you do today?: ")
 
 request_body = {
- "query": f"{exercise}",
- "gender": "male",
- "weight_kg": 79.8,
- "height_cm": 173.64,
- "age": 30
+ "query": exercise,
+ "gender": GENDER,
+ "weight_kg": WEIGHT,
+ "height_cm": HEIGHT,
+ "age": AGE
 }
 
 response = requests.post(url=NUTRONIX_API_ENDPOINT, headers=headers, json=request_body)
