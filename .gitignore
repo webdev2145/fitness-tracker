@@ -3,3 +3,4 @@ bin
 *.cfg
 share
 credentials.py
+__pychare__
