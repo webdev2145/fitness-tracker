@@ -6,7 +6,7 @@ from datetime import datetime
 GENDER = "male"
 WEIGHT = 79.8
 HEIGHT = 173.64
-AGE = 30
+AGE = 33
 
 #TODO 1: SET API ID and KEY
 #Added from credentials file
@@ -35,7 +35,7 @@ result = response.json()
 print(result)
 
 ##SHEETY SETUP
-SHEETY_GOOGLE_SHEETS_ENDPOINT = f"https://api.sheety.co/{SHEETY_USERNAME}/{SHEETY_PROJECT}/{SHEETY_NAME}"
+SHEETY_GOOGLE_SHEETS_ENDPOINT = f'https://api.sheety.co/04f2b286da644c010feb8f6bb4923efe/workoutTracking/workouts'
 
 today_date = datetime.now().strftime("%d%m%Y")
 today_time = datetime.now().strftime("%X")
@@ -55,6 +55,6 @@ for workout in workout_data:
     }
 
 sheety_response = requests.post(url=SHEETY_GOOGLE_SHEETS_ENDPOINT, json=sheety_parameters)
-
-print(sheety_response.text)
+sheety_data = sheety_response.json()
+print(sheety_data)
 
